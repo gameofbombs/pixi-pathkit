@@ -1,0 +1,45 @@
+{
+  "name": "pixi-pathkit",
+  "version": "0.1.0",
+  "description": "Pathkit integration for pixi v^5",
+  "author": "Ivan Popelyshev",
+  "contributors": [
+    "Ivan Popelyshev <ivan.popelyshev@gmail.com>"
+  ],
+  "main": "./dist/pixi-pathkit.js",
+  "types": "./dist/pixi-pathkit.d.ts",
+  "homepage": "https://github.com/gameofbombs/pixi-pathkit",
+  "bugs": {
+    "url": "https://github.com/gameofbombs/pixi-pathkit/issues"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gameofbombs/pixi-pathkit.git"
+  },
+  "scripts": {
+    "cleanup": "rimraf bin && mkdirp dist",
+    "prestart": "yarn cleanup",
+    "start": "parallelshell \"yarn watch\"",
+    "watch": "tsc -w",
+    "prebuild": "yarn cleanup",
+    "make:dts": "node scripts/make_dts.js",
+    "build": "tsc && yarn make:dts",
+    "docs": "jsdoc -c scripts/jsdoc.conf.json -R README.md"
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "package.json",
+    "README.md"
+  ],
+  "devDependencies": {
+    "del": "^2.2.0",
+    "mkdirp": "^0.5.1",
+    "pixi.js": "~5.1.0",
+    "pathkit-wasm": "0.6.0",
+    "parallelshell": "^2.0.0",
+    "rimraf": "^2.5.3",
+    "typescript": "^3.5.3"
+  }
+}
